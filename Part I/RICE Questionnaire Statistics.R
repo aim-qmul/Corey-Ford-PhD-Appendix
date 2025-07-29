@@ -35,19 +35,19 @@ options(scipen=999)
 #=ITEM DEVELOPMENT==============================================================
 
 ## ::: Preliminary... Authors Round 1 ::: 
-round1 = read_excel("PHASE 1 - ITEM DEVELOPMENT//Item Development Analysis.xlsx",
+round1 = read_excel("Chapter 3 - Item Development//Item Development Analysis.xlsx",
                     sheet = "Authors Round 1") 
 result = psych::alpha(round1[, c("Author_A", "Author_B")])$total$raw_alpha
 signif(result,2)
 
 ## ::: Preliminary... Authors Round 2 ::: 
-round2 = read_excel("PHASE 1 - ITEM DEVELOPMENT//Item Development Analysis.xlsx",
+round2 = read_excel("Chapter 3 - Item Development//Item Development Analysis.xlsx",
                     sheet = "Authors Round 2") 
 result = psych::alpha(round2[, c("Author_A", "Author_B")])$total$raw_alpha
 signif(result,2)
 
 ## ::: Expert Review :::
-experts = read_excel("PHASE 1 - ITEM DEVELOPMENT//Item Development Analysis.xlsx",
+experts = read_excel("Chapter 3 - Item Development//Item Development Analysis.xlsx",
                     sheet = "Experts Final") 
 psych::alpha(experts[,-1])
 
@@ -63,7 +63,7 @@ psych::alpha(experts[,-1])
 # https://www.youtube.com/watch?v=VCpVcXf_wOk&t=40s
 
 # Read data
-scale_dev = read_excel("PHASE 2 - SCALE DEVELOPMENT//Scale Development Analysis.xlsx",
+scale_dev = read_excel("Chapter 3 - Scale Development//Scale Development Analysis.xlsx",
                         sheet = "Cleaned Data (n=300)") 
 
 ## ::: Demographics ::: 
@@ -104,7 +104,7 @@ fa(scale_dev, nfactors = 1, rotate =  "oblimin" )
 
 ## ::: Inter-item Reliability ::: 
 # for whole scale
-scale_dev = read_excel("PHASE 2 - SCALE DEVELOPMENT//Scale Development Analysis.xlsx",
+scale_dev = read_excel("Chapter 3 - Scale Development//Scale Development Analysis.xlsx",
                        sheet = "Cleaned Data") 
 selectedItems = scale_dev[, c("RICE_Q13", "RICE_Q35",
                               "RICE_Q19", "RICE_Q14",
@@ -148,14 +148,14 @@ cor.test(scale_dev$RICE_Q22, scale_dev$RICE_Q25, method=c("spearman"))
 
 
 ## ::: Demographics ::: 
-scaleEvalTest = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx",
+scaleEvalTest = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx",
                         sheet = "Cleaned Data - Small") 
 table(scaleEvalTest$Gender)
 summary(scaleEvalTest$Age)
 sd(scaleEvalTest$Age)
 table(scaleEvalTest$Country)
 
-scaleEvalTest = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis ReTest.xlsx",
+scaleEvalTest = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis ReTest.xlsx",
                            sheet = "Cleaned Data - Small") 
 table(scaleEvalTest$Gender)
 summary(scaleEvalTest$Age)
@@ -171,9 +171,9 @@ table(scaleEvalTest$Country)
 ##---
 
 # load data
-scaleEvalTestBig = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx",
+scaleEvalTestBig = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx",
                            sheet = "Cleaned Data") 
-scaleEvalReTestBig = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis ReTest.xlsx",
+scaleEvalReTestBig = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis ReTest.xlsx",
                            sheet = "Cleaned Data") 
 
 # Do CFA (MODIFY BELOW FOR VARIATIONS on Writing vs Drawing)
@@ -195,7 +195,7 @@ summary(fit, standardized=TRUE, ci=TRUE, fit.measures=TRUE)
 ##---
 
 
-beforeAfter = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx",
+beforeAfter = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx",
                            sheet = "Test Re-Test") 
 
 ICCTest = beforeAfter[, c("Before_Writing_RICE", "After_Writing_RICE")]
@@ -226,9 +226,9 @@ ICC(ICCTest, alpha=0.5, missing=TRUE)
 ##---
 
 # Reload simplified data & retest
-scaleEvalTest = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx", 
+scaleEvalTest = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx", 
                            sheet = "Cleaned Data - Small") 
-beforeAfter = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx", 
+beforeAfter = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx", 
                          sheet = "Test Re-Test") 
 
 # Wilcoxon signed-rank tests
@@ -286,9 +286,9 @@ median(beforeAfter$After_Drawing_RICE)
 ## ---
 
 # Load necessary datas
-scaleEvalTest = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis.xlsx", 
+scaleEvalTest = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis.xlsx", 
                            sheet = "Cleaned Data - Small") 
-beforeAfter = read_excel("PHASE 3 - RICE USER STUDY/RiCE User Study Analysis ReTest.xlsx", 
+beforeAfter = read_excel("Chapter 4 - Item Development/RiCE User Study Analysis ReTest.xlsx", 
                          sheet = "Cleaned Data - Small") 
 
 # For test... 
@@ -362,3 +362,4 @@ print(matrix3b)
 
 matrix4b = rcorr(as.matrix(Drawing_CSI_RICE), type="spearman")
 print(matrix4b)
+
